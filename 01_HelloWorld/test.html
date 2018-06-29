@@ -22,19 +22,28 @@
   <p>Hello {{name}}</p> <!--双大括号表达式: 动态显示数据-->
 </div>
 
+<div id="test2"></div>
+
 <p>{{name}}</p>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
-  const vue = new Vue({ // 配置对象(属性名是特定的一些属性名)
+  const vm = new Vue({ // 配置对象(属性名是特定的一些属性名)
     el: '#test',  // element, 它的值是选择器字符串, 指定用vue来管理哪个标签元素
     data: { // 包含n个数据的对象, 在页面中可以直接读取
       name: 'atguigu'
     }
   })
-//  console.log(vue._data.name)
+//  console.log(vm._data.name)
 //  vue.name = 'test'
-//  console.log(vue._data.name)
+//  console.log(vm._data.name)
+
+  new Vue({
+    el: '#test2',
+    data: {
+
+    }
+  })
 </script>
 </body>
 </html>

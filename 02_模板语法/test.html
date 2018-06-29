@@ -31,12 +31,39 @@
 
 <div id="app">
   <h2>1. 双大括号表达式</h2>
+  <p>{{msg}}</p>
+  <p>{{msg.toUpperCase()}}</p>
 
   <h2>2. 指令一: 强制数据绑定</h2>
+  <a v-bind:href='url'>链接1</a>
+  <a :href='url'>链接2</a>
 
   <h2>3. 指令二: 绑定事件监听</h2>
+  <button v-on:click="test">测试</button>
+  <button v-on:click="test2('abc')">测试2</button>
+  <button @click="test">测试3</button>
 
 </div>
 
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      msg: 'NBA I Love This Game!',
+      url: 'http://www.atuigu.com'
+    },
+    methods: {
+      test () {
+        alert('test...')
+      },
+
+      test2(msg) {
+        alert(msg)
+      }
+    }
+  })
+</script>
 </body>
 </html>
