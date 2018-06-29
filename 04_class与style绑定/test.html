@@ -32,14 +32,41 @@
 
 <div id="demo">
   <h2>1. class绑定: :class='xxx'</h2>
+  <p class="classC" :class="a">xxx是字符串</p> <!--类名不确定-->
+  <p :class="{classA: hasA, classB: hasB}">xxx是对象</p><!--类名确定, 但是否有不确定-->
+  <p :class="c">xxx是数组</p>
 
   <h2>2. style绑定</h2>
+  <p :style="{color: myColor, fontSize:mySize+'px'}">:style="{ color: activeColor, fontSize: fontSize + 'px' }"</p>
 
+
+  <hr>
+  <button @click="update">更新</button>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  new Vue({
+    el: '#demo',
+    data: {
+      a: 'classA',
+      hasA: true,
+      hasB: false,
+      c: ['classA', 'classB'],
+      myColor: 'red',
+      mySize: 30
+    },
 
+    methods: {
+      update () {
+        this.a = 'classB'
+        this.hasA = false
+        this.hasB = true
+        this.myColor = 'pink'
+        this.mySize = 15
+      }
+    }
+  })
 </script>
 </body>
 </html>
