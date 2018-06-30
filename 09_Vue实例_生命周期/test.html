@@ -23,11 +23,40 @@
   beforeDestory(): 做收尾工作, 如: 清除定时器
 -->
 
-<div>
-
+<div id="app">
+  <button @click="destoryVue">destory vue</button>
+  <p v-show="isShow">尚硅谷IT教育</p>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+  new Vue({
+    // el: '#app',
+    data: {
+      isShow: true
+    },
+
+    mounted () {
+      // 启动异步任务(启动定时器, 发送ajax请求, 绑定自定义监听/订阅消息)
+      this.intervalId = setInterval(() => {
+        console.log('-----')
+        this.isShow = !this.isShow
+      }, 1000)
+    },
+
+    beforeDestroy () {
+      // 做一些收尾的工作(清除定时器)
+      clearInterval(this.intervalId)
+    },
+
+    methods: {
+      destoryVue () {
+        this.$destroy()
+      }
+    }
+  }).$mount('#app')
+
+
+</script>
 </body>
 </html>
